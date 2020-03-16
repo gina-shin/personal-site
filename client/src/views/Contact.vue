@@ -87,15 +87,14 @@ export default {
         this.errors.push('Please leave a message.')
       }
       else {
-        console.log('DEBUG PROCESS.ENV.APIBASEURL', process.env.VUE_APP_apiBaseUrl)
         axios.post(process.env.VUE_APP_apiBaseUrl + '/message', {
           name: this.name,
           email: this.email,
           phone: this.phone,
           message: this.message,
         })
-        .then((response) => console.log("DEBUG RESPONSE", response))
-        .catch((error) => console.log(error))
+        .then((response) => alert("DEBUG RESPONSE " + response))
+        .catch((error) => alert(error))
       }
     }
   } 
