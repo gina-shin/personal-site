@@ -25,7 +25,7 @@ module.exports = function(router, emailService) {
             
             return emailService(name, phone, senderEmail, message)
             .then((resp) => {
-                sendResponse(res, 200, resp);
+                sendResponse(res, 200, 'OK');
                 console.log(resp)
             })
             .catch((error) => {

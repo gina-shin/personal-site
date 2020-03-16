@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from 'axios' 
 
 export default {
   data: function () {
@@ -70,6 +70,12 @@ export default {
     }
   },
   methods: {
+    clearInputFields: function() {
+      this.name = ''
+      this.email = ''
+      this.phone = ''
+      this.message = ''
+    },
     checkForm: function(e) {
       e.preventDefault()
 
@@ -93,7 +99,15 @@ export default {
           phone: this.phone,
           message: this.message,
         })
-        .then((response) => alert("DEBUG RESPONSE " + response))
+        .then((response) => {
+          if(response.data === "OK") {
+            alert("Message sent. Thanks, and talk to you soon!")
+            this.clearInputFields()
+          }
+          else {
+            alert("Error: " + response.data)
+          }
+        })
         .catch((error) => alert(error))
       }
     }
