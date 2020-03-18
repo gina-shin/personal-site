@@ -49,7 +49,7 @@ export default {
 
   methods: {
     downloadResume: function() {
-      window.open('https://ginaleeshin.com/assets/resumeShinGina.pdf', '_blank')
+      window.open('https://ginaleeshin.com/resumeShinGina.pdf', '_blank')
     }
   }
 }
