@@ -17,8 +17,9 @@
     <p>  
       I am passionate about problem-solving and great user-experiences in building modern applications.
       You'll see some of that on my
-      <a href="https://github.com/gina-shin">GitHub</a>. If you would like to chat over
-      some coffee or get in touch with me, feel free to drop me a line <router-link to="/contact">here</router-link>.
+      <a href="https://github.com/gina-shin">GitHub</a> and on my
+      <a href="" @click.prevent="downloadResume()">resume</a>.
+      If you would like to chat over some coffee or get in touch with me, feel free to drop me a line <router-link to="/contact">here</router-link>.
     </p>
 
     <p>
@@ -30,6 +31,29 @@
     </p>
   </div>
 </template>
+
+<script>
+// Do I import my language files here? Or in State store and try to retrieve them after testing state.store's settings?
+// import english from '../languages/english'
+// import korean from '../languages/korean'
+
+export default {
+  // data: function() {
+  //   // if() {
+
+  //   // }
+  //   return {
+
+  //   }
+  // },
+
+  methods: {
+    downloadResume: function() {
+      window.open('https://ginaleeshin.com/assets/resumeShinGina.pdf', '_blank')
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 
