@@ -1,58 +1,135 @@
 <template>
   <div class="about">
-    <h1>Hello.
+    <h1>{{ text.hello }}
       <span class="wiggle">
         👋
       </span>
     </h1>
 
     <h2>
-      My name is Gina Shin.
+      {{ text.intro }}
     </h2>
 
     <p>
-      I am a fullstack developer who loves to work in Node and Vue, and has extensive SQL experience.
+      {{ text.career }}
     </p>
 
     <p>  
-      I am passionate about problem-solving and great user-experiences in building modern applications.
-      You'll see some of that on my
-      <a href="https://github.com/gina-shin">GitHub</a> and on my
-      <a href="" @click.prevent="downloadResume()">resume</a>.
-      If you would like to chat over some coffee or get in touch with me, feel free to drop me a line <router-link to="/contact">here</router-link>.
+      {{ text.interests }}
+      {{ text.github }}
+      <a href="https://github.com/gina-shin">{{ text.githubLink }}</a>
+      {{ text.resume }} <a href="" @click.prevent="downloadResume()">{{ text.resumeLink }}</a>.
+      {{ text.contact }} <router-link to="/contact">{{text.contactLink }}</router-link>.
     </p>
 
     <p>
-      I'm also a joyful leader and positivity electrode who has a deep compassion for people.
+      {{ text.also }}
     </p>
 
     <p>
-      Outside of programming, I love to clicker train my cat to sit for the 50,000th time.
+      {{ text.hobbies }}
     </p>
   </div>
 </template>
 
 <script>
-// Do I import my language files here? Or in State store and try to retrieve them after testing state.store's settings?
-// import english from '../languages/english'
-// import korean from '../languages/korean'
+// Need to make this a computed value? Currently doesn't responsively reload props when changing state store
+// import store from '../store/index.js'
+import english from '../languages/english'
+import korean from '../languages/korean'
 
 export default {
-  // data: function() {
-  //   // if() {
-
-  //   // }
-  //   return {
-
-  //   }
-  // },
+  /* eslint-disable */
+  data: function() {
+    return {
+      text: setText()
+    }
+  },
 
   methods: {
     downloadResume: function() {
       window.open('https://ginaleeshin.com/resumeShinGina.pdf', '_blank')
+    },
+
+    getLanguage() {
+      return this.$store.state.language
+    },
+  },
+
+  computed: {
+    setText() {
+      var words
+      return words = (this.$store.state.language == 'korean')
+      ? {
+        hello: korean.hello,
+        intro: korean.intro,
+        career: korean.career,
+        interests: korean.interests,
+        github: korean.github,
+        githubLink: korean.githubLink,
+        resume: korean.resume,
+        resumeLink: korean.resumeLink,
+        contact: korean.contact,
+        contactLink: korean.contactLink,
+        also: korean.also,
+        hobbies: korean.hobbies,
+      }
+      : {
+        hello: english.hello,
+        intro: english.intro,
+        career: english.career,
+        interests: english.interests,
+        github: english.github,
+        githubLink: english.githubLink,
+        resume: english.resume,
+        resumeLink: english.resumeLink,
+        contact: english.contact,
+        contactLink: english.contactLink,
+        also: english.also,
+        hobbies: english.hobbies,
+      }
     }
+/* eslint-disable */
+    // getLanguage() {
+    //   return this.$store.getters.language
+    // },
+
+  //   setText() {
+  //     console.log("getters", this.getLanguage())
+  //     var aboutText = (this.getLanguage() == 'korean')
+  //     ? {
+  //       hello: korean.hello,
+  //       intro: korean.intro,
+  //       career: korean.career,
+  //       interests: korean.interests,
+  //       github: korean.github,
+  //       githubLink: korean.githubLink,
+  //       resume: korean.resume,
+  //       resumeLink: korean.resumeLink,
+  //       contact: korean.contact,
+  //       contactLink: korean.contactLink,
+  //       also: korean.also,
+  //       hobbies: korean.hobbies,
+  //     }
+  //     : {
+  //       hello: english.hello,
+  //       intro: english.intro,
+  //       career: english.career,
+  //       interests: english.interests,
+  //       github: english.github,
+  //       githubLink: english.githubLink,
+  //       resume: english.resume,
+  //       resumeLink: english.resumeLink,
+  //       contact: english.contact,
+  //       contactLink: english.contactLink,
+  //       also: english.also,
+  //       hobbies: english.hobbies,
+  //     }
+  //     return this.text = aboutText
+  //   }
   }
 }
+/* eslint-enable */
 </script>
 
 <style lang="scss">

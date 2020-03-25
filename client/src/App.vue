@@ -7,13 +7,25 @@
       </div>
       <div id="language">
         Talk to me in
-        <router-link to="/">한글</router-link> |
-        <router-link to="/">English</router-link>
+        <a href="" @click.prevent="changeLanguage('korean')">한글</a> |
+        <a href="" @click.prevent="changeLanguage('english')">English</a>
       </div>
     </div>
     <router-view/>
   </div>
 </template>
+
+<script>
+import store from './store/index.js'
+
+export default {
+  methods: {
+    changeLanguage(language) {
+      store.dispatch('changeLanguage', language)
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 
