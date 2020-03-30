@@ -42,25 +42,13 @@ export default {
   /* eslint-disable */
   data: function() {
     return {
-      text: setText()
+      text: ''
     }
   },
 
-  methods: {
-    downloadResume: function() {
-      window.open('https://ginaleeshin.com/resumeShinGina.pdf', '_blank')
-    },
-
-    getLanguage() {
-      return this.$store.state.language
-    },
-  },
-
-  computed: {
-    setText() {
-      var words
-      return words = (this.$store.state.language == 'korean')
-      ? {
+  created() {
+    if(this.$store.state.language == 'korean') {
+      this.text = {
         hello: korean.hello,
         intro: korean.intro,
         career: korean.career,
@@ -74,21 +62,35 @@ export default {
         also: korean.also,
         hobbies: korean.hobbies,
       }
-      : {
-        hello: english.hello,
-        intro: english.intro,
-        career: english.career,
-        interests: english.interests,
-        github: english.github,
-        githubLink: english.githubLink,
-        resume: english.resume,
-        resumeLink: english.resumeLink,
-        contact: english.contact,
-        contactLink: english.contactLink,
-        also: english.also,
-        hobbies: english.hobbies,
-      }
     }
+      else{
+        this.text = {
+          hello: english.hello,
+          intro: english.intro,
+          career: english.career,
+          interests: english.interests,
+          github: english.github,
+          githubLink: english.githubLink,
+          resume: english.resume,
+          resumeLink: english.resumeLink,
+          contact: english.contact,
+          contactLink: english.contactLink,
+          also: english.also,
+          hobbies: english.hobbies,
+        }
+      }
+  },
+
+  methods: {
+    downloadResume: function() {
+      window.open('https://ginaleeshin.com/resumeShinGina.pdf', '_blank')
+    },
+
+    getLanguage() {
+      return this.$store.state.language
+    },
+  },
+
 /* eslint-disable */
     // getLanguage() {
     //   return this.$store.getters.language
@@ -127,7 +129,6 @@ export default {
   //     }
   //     return this.text = aboutText
   //   }
-  }
 }
 /* eslint-enable */
 </script>
