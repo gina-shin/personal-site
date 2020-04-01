@@ -20,6 +20,8 @@ import store from './store/index.js'
 import english from './languages/english'
 import korean from './languages/korean'
 
+document.title = 'Well, hello!'
+
 export default {
   data: function(){
     return {

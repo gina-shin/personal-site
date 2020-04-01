@@ -4,12 +4,20 @@ import About from '../views/About.vue'
 
 Vue.use(VueRouter)
 
+// router.beforeEach((to, from, next) => {
+//   document.title = to.meta.title
+//   next()
+// })
+
 const routes = [
   {
     path: '/',
     name: 'About',
     props: true,
-    component: About
+    component: About,
+    meta: {
+      title: 'Welcome!'
+    }
   },
   {
     path: '/about',
