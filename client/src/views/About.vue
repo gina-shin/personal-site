@@ -40,11 +40,16 @@ import korean from '../languages/korean'
 
 export default {
   /* eslint-disable */
-  data: function() {
-    return {
-      text: ''
-    }
-  },
+
+  props: [
+    'text'
+  ],
+
+  // data: function() {
+  //   return {
+  //     text: ''
+  //   }
+  // },
 
   created() {
     if(this.$store.state.language == 'korean') {
