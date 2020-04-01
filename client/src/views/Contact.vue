@@ -12,7 +12,7 @@
         </ul>
       </p>
 
-      <label for="name">Name</label>
+      <label for="name">{{text.name}}</label>
       <input
         class="size-inputs"
         id="name"
@@ -21,7 +21,7 @@
         name="name"
       >
 
-      <label for="email">Email</label>
+      <label for="email">{{ text.email }}</label>
       <input
         class="size-inputs"
         id="email"
@@ -30,7 +30,7 @@
         name="email"
       >
 
-      <label for="phoneNumber">Phone Number</label>
+      <label for="phoneNumber">{{ text.phone }}</label>
       <input
         class="size-inputs"
         id="phone"
@@ -39,7 +39,7 @@
         name="phone"
       >
 
-      <label for="message">Message</label>
+      <label for="message">{{ text.message }}</label>
       <textarea
         id="message"
         v-model="message"
@@ -57,24 +57,46 @@
 </template>
 
 <script>
-import axios from 'axios' 
+import axios from 'axios'
+import english from '../languages/english'
+import korean from '../languages/korean'
 
 export default {
   data: function () {
     return {
       errors: [],
-      name: null,
-      email: null,
-      phone: null,
-      message: null,
     }
   },
+
+  props: [
+    'text'
+  ],
+
+  created() {
+    if(this.$store.state.language == 'korean') {
+      this.text = {
+        name: korean.contactName,
+        email: korean.contactEmail,
+        phone: korean.contactPhone,
+        message: korean.contactMessage,
+      }
+    }
+    else{
+      this.text = {
+        name: english.contactName,
+        email: english.contactEmail,
+        phone: english.contactPhone,
+        message: english.contactMessage,
+      }
+    }
+  },
+
   methods: {
     clearInputFields: function() {
-      this.name = ''
-      this.email = ''
-      this.phone = ''
-      this.message = ''
+      this.text.name = ''
+      this.text.email = ''
+      this.text.phone = ''
+      this.text.message = ''
     },
     checkForm: function(e) {
       e.preventDefault()

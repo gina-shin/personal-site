@@ -27,10 +27,6 @@ export default {
     }
   },
 
-  // props: [
-  //   'text',
-  // ],
-
   methods: {
     changeLanguage(language) {
       store.dispatch('changeLanguage', language)
@@ -48,8 +44,11 @@ export default {
           contactLink: korean.contactLink,
           also: korean.also,
           hobbies: korean.hobbies,
+          name: korean.contactName,
+          email: korean.contactEmail,
+          phone: korean.contactPhone,
+          message: korean.contactMessage,
         }
-        // return text
     }
       else{
         this.text = {
@@ -65,8 +64,11 @@ export default {
           contactLink: english.contactLink,
           also: english.also,
           hobbies: english.hobbies,
+          name: english.contactName,
+          email: english.contactEmail,
+          phone: english.contactPhone,
+          message: english.contactMessage,
         }
-        // return text
       }
     }
   }

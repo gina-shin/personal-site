@@ -8,5 +8,9 @@ export default {
     "contact": "커피 한 잔 마시고 싶으면, 않으면 연락하고 싶으면",
     "contactLink": "여기에 연락하십시오",
     "also": "저는 또한 즐거운 리더 과 사람들 좋아한 사람입니다.",
-    "hobbies": "개발자입 밖에, 내 고양이 앉는 방법을 50,000 번 가르치는 것을 좋아합니다."
+    "hobbies": "개발자입 밖에, 내 고양이 앉는 방법을 50,000 번 가르치는 것을 좋아합니다.",
+    "contactName": "이름",
+	"contactEmail": "이메일",
+	"contactPhone": "전화 번호",
+	"contactMessage": "메시지",
 }

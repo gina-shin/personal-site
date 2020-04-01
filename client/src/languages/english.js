@@ -10,5 +10,9 @@ export default {
 	"contact": "If you would like to chat over some coffee or get in touch with me, feel free to drop me a line",
 	"contactLink": "here",
 	"also": "I'm also a joyful leader and positivity electrode who has a deep compassion for people.",
-	"hobbies": "Outside of programming, I love to clicker train my cat to sit for the 50,000th time."
+	"hobbies": "Outside of programming, I love to clicker train my cat to sit for the 50,000th time.",
+	"contactName": "Name",
+	"contactEmail": "Email",
+	"contactPhone": "Phone",
+	"contactMessage": "Message",
 }

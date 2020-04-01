@@ -65,22 +65,22 @@ export default {
         hobbies: korean.hobbies,
       }
     }
-      else{
-        this.text = {
-          hello: english.hello,
-          intro: english.intro,
-          career: english.career,
-          interests: english.interests,
-          github: english.github,
-          githubLink: english.githubLink,
-          resume: english.resume,
-          resumeLink: english.resumeLink,
-          contact: english.contact,
-          contactLink: english.contactLink,
-          also: english.also,
-          hobbies: english.hobbies,
-        }
+    else{
+      this.text = {
+        hello: english.hello,
+        intro: english.intro,
+        career: english.career,
+        interests: english.interests,
+        github: english.github,
+        githubLink: english.githubLink,
+        resume: english.resume,
+        resumeLink: english.resumeLink,
+        contact: english.contact,
+        contactLink: english.contactLink,
+        also: english.also,
+        hobbies: english.hobbies,
       }
+    }
   },
 
   methods: {
