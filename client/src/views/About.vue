@@ -33,13 +33,10 @@
 </template>
 
 <script>
-// Need to make this a computed value? Currently doesn't responsively reload props when changing state store
-// import store from '../store/index.js'
 import english from '../languages/english'
 import korean from '../languages/korean'
 
 export default {
-  /* eslint-disable */
 
   props: [
     'text'
