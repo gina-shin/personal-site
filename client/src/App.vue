@@ -17,8 +17,7 @@
 
 <script>
 import store from './store/index.js'
-import english from './languages/english'
-import korean from './languages/korean'
+import text from './languages/index'
 
 document.title = 'Well, hello!'
 
@@ -31,47 +30,8 @@ export default {
 
   methods: {
     changeLanguage(language) {
-      store.dispatch('changeLanguage', language)
-      if(this.$store.state.language == 'korean') {
-        this.text = {
-          hello: korean.hello,
-          intro: korean.intro,
-          career: korean.career,
-          interests: korean.interests,
-          github: korean.github,
-          githubLink: korean.githubLink,
-          resume: korean.resume,
-          resumeLink: korean.resumeLink,
-          contact: korean.contact,
-          contactLink: korean.contactLink,
-          also: korean.also,
-          hobbies: korean.hobbies,
-          name: korean.contactName,
-          email: korean.contactEmail,
-          phone: korean.contactPhone,
-          message: korean.contactMessage,
-        }
-    }
-      else{
-        this.text = {
-          hello: english.hello,
-          intro: english.intro,
-          career: english.career,
-          interests: english.interests,
-          github: english.github,
-          githubLink: english.githubLink,
-          resume: english.resume,
-          resumeLink: english.resumeLink,
-          contact: english.contact,
-          contactLink: english.contactLink,
-          also: english.also,
-          hobbies: english.hobbies,
-          name: english.contactName,
-          email: english.contactEmail,
-          phone: english.contactPhone,
-          message: english.contactMessage,
-        }
-      }
+		store.dispatch('changeLanguage', language)
+		this.text = text[language];
     }
   }
 }

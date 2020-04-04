@@ -58,8 +58,7 @@
 
 <script>
 import axios from 'axios'
-import english from '../languages/english'
-import korean from '../languages/korean'
+import text from '../languages/index';
 
 export default {
   data: function () {
@@ -73,22 +72,7 @@ export default {
   ],
 
   created() {
-    if(this.$store.state.language == 'korean') {
-      this.text = {
-        name: korean.contactName,
-        email: korean.contactEmail,
-        phone: korean.contactPhone,
-        message: korean.contactMessage,
-      }
-    }
-    else{
-      this.text = {
-        name: english.contactName,
-        email: english.contactEmail,
-        phone: english.contactPhone,
-        message: english.contactMessage,
-      }
-    }
+	this.text = text[this.$store.state.language];
   },
 
   methods: {
