@@ -12,12 +12,7 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'About',
-    props: true,
-    component: About,
-    meta: {
-      title: 'Welcome!'
-    }
+    redirect: '/about'
   },
   {
     path: '/about',
