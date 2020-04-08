@@ -173,6 +173,7 @@ export default {
 
   textarea {
     height: 6em;
+	resize: none;
   }
 
   .center {
