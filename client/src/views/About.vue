@@ -36,7 +36,6 @@
 import text from '../languages/index';
 
 export default {
-
   props: [
     'text'
   ],
@@ -48,16 +47,12 @@ export default {
   // },
 
   created() {
-	this.text = text[this.$store.state.language];
+	this.text = text[this.$store.getters.getLanguage][this.$route.name];
   },
 
   methods: {
     downloadResume: function() {
       window.open('https://ginaleeshin.com/resumeShinGina.pdf', '_blank')
-    },
-
-    getLanguage() {
-      return this.$store.state.language
     },
   }
 }
