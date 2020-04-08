@@ -7,8 +7,8 @@
       </div>
       <div id="language">
         Talk to me in
-        <a href="" @click.prevent="changeLanguage('korean')">한글</a> |
-        <a href="" @click.prevent="changeLanguage('english')">English</a>
+        <a href="" @click.prevent="setLanguage('korean')">한글</a> |
+        <a href="" @click.prevent="setLanguage('english')">English</a>
       </div>
     </div>
     <router-view :text="text"/>
@@ -29,9 +29,9 @@ export default {
   },
 
   methods: {
-    changeLanguage(language) {
-		store.dispatch('changeLanguage', language)
-		this.text = text[language];
+    setLanguage(language) {
+		store.dispatch('setLanguage', language)
+		this.text = text[language][this.$route.name];
     }
   }
 }
