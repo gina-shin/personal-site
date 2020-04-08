@@ -58,13 +58,16 @@
 
 <script>
 import axios from 'axios'
-import english from '../languages/english'
-import korean from '../languages/korean'
+import text from '../languages/index';
 
 export default {
   data: function () {
     return {
-      errors: [],
+		errors: [],
+		name: '',
+		email: '',
+		phone: '',
+		message: ''
     }
   },
 
@@ -73,30 +76,15 @@ export default {
   ],
 
   created() {
-    if(this.$store.state.language == 'korean') {
-      this.text = {
-        name: korean.contactName,
-        email: korean.contactEmail,
-        phone: korean.contactPhone,
-        message: korean.contactMessage,
-      }
-    }
-    else{
-      this.text = {
-        name: english.contactName,
-        email: english.contactEmail,
-        phone: english.contactPhone,
-        message: english.contactMessage,
-      }
-    }
+	this.text = text[this.$store.getters.getLanguage][this.$route.name];
   },
 
   methods: {
     clearInputFields: function() {
-      this.text.name = ''
-      this.text.email = ''
-      this.text.phone = ''
-      this.text.message = ''
+      this.name = ''
+      this.email = ''
+      this.phone = ''
+      this.message = ''
     },
     checkForm: function(e) {
       e.preventDefault()
@@ -130,7 +118,7 @@ export default {
             alert("Error: " + response.data)
           }
         })
-        .catch((error) => alert(error))
+		.catch((error) => alert(error))
       }
     }
   } 
@@ -185,6 +173,7 @@ export default {
 
   textarea {
     height: 6em;
+	resize: none;
   }
 
   .center {

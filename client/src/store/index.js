@@ -8,16 +8,16 @@ export default new Vuex.Store({
     language: 'english'
   },
   getters: {
-    language: (state) => state.language
+    getLanguage: state => state.language
   },
   mutations: {
-    changeLanguage(state, language) {
+    setLanguage(state, language) {
       state.language = language
     }
   },
   actions: {
-    changeLanguage ({ commit }, language) {
-      commit('changeLanguage', language)
+    setLanguage ({ commit }, language) {
+      commit('setLanguage', language)
     }
   },
   modules: {

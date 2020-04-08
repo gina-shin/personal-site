@@ -33,11 +33,9 @@
 </template>
 
 <script>
-import english from '../languages/english'
-import korean from '../languages/korean'
+import text from '../languages/index';
 
 export default {
-
   props: [
     'text'
   ],
@@ -49,88 +47,14 @@ export default {
   // },
 
   created() {
-    if(this.$store.state.language == 'korean') {
-      this.text = {
-        hello: korean.hello,
-        intro: korean.intro,
-        career: korean.career,
-        interests: korean.interests,
-        github: korean.github,
-        githubLink: korean.githubLink,
-        resume: korean.resume,
-        resumeLink: korean.resumeLink,
-        contact: korean.contact,
-        contactLink: korean.contactLink,
-        also: korean.also,
-        hobbies: korean.hobbies,
-      }
-    }
-    else{
-      this.text = {
-        hello: english.hello,
-        intro: english.intro,
-        career: english.career,
-        interests: english.interests,
-        github: english.github,
-        githubLink: english.githubLink,
-        resume: english.resume,
-        resumeLink: english.resumeLink,
-        contact: english.contact,
-        contactLink: english.contactLink,
-        also: english.also,
-        hobbies: english.hobbies,
-      }
-    }
+	this.text = text[this.$store.getters.getLanguage][this.$route.name];
   },
 
   methods: {
     downloadResume: function() {
       window.open('https://ginaleeshin.com/resumeShinGina.pdf', '_blank')
     },
-
-    getLanguage() {
-      return this.$store.state.language
-    },
-  },
-
-/* eslint-disable */
-    // getLanguage() {
-    //   return this.$store.getters.language
-    // },
-
-  //   setText() {
-  //     console.log("getters", this.getLanguage())
-  //     var aboutText = (this.getLanguage() == 'korean')
-  //     ? {
-  //       hello: korean.hello,
-  //       intro: korean.intro,
-  //       career: korean.career,
-  //       interests: korean.interests,
-  //       github: korean.github,
-  //       githubLink: korean.githubLink,
-  //       resume: korean.resume,
-  //       resumeLink: korean.resumeLink,
-  //       contact: korean.contact,
-  //       contactLink: korean.contactLink,
-  //       also: korean.also,
-  //       hobbies: korean.hobbies,
-  //     }
-  //     : {
-  //       hello: english.hello,
-  //       intro: english.intro,
-  //       career: english.career,
-  //       interests: english.interests,
-  //       github: english.github,
-  //       githubLink: english.githubLink,
-  //       resume: english.resume,
-  //       resumeLink: english.resumeLink,
-  //       contact: english.contact,
-  //       contactLink: english.contactLink,
-  //       also: english.also,
-  //       hobbies: english.hobbies,
-  //     }
-  //     return this.text = aboutText
-  //   }
+  }
 }
 /* eslint-enable */
 </script>
